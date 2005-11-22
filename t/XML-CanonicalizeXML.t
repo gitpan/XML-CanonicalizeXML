@@ -23,10 +23,10 @@ $body_xpath=
 (//. | //@* | //namespace::*)[ancestor-or-self::SOAP-ENV:Body]
 </XPath>';
 
-$si_xpath=
-'<XPath xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-(//. | //@* | //namespace::*)[ancestor-or-self::ds:SignedInfo]
-</XPath>';
+#$si_xpath=
+#'<XPath xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+#(//. | //@* | //namespace::*)[ancestor-or-self::ds:SignedInfo]
+#</XPath>';*/
 
 $testresult1=
 '<SOAP-ENV:Body xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" Id="myBody">

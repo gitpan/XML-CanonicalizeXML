@@ -27,7 +27,7 @@ our @EXPORT = qw(
 	
 );
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub AUTOLOAD {
     # This AUTOLOAD is used to 'autoload' constants from the constant()
@@ -101,13 +101,13 @@ None by default.
 
 =head1 SEE ALSO
 
-www.xmlsoft.org for full details of libxml2
+http://www.xmlsoft.org for full details of libxml2
 
 
 =head1 AUTHOR
 
-Stefan Zasada, E<lt>sjz@zasada.co.uk<gt>
-
+Stefan Zasada, E<lt>sjz@zasada.co.ukE<gt>
+with thanks to Mark Mc Keown
 
 =head1 COPYRIGHT AND LICENSE
 

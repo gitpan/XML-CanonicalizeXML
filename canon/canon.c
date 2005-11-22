@@ -151,15 +151,15 @@ static xmlXPathObjectPtr load_xpath_expr (xmlDocPtr parent_doc, char* xpathstrin
   return(xpath);
 }
 
-char* canonicalize (char *xmlString, char *xpathString, char *nameSpace, int exc, int comm) {
+int canonicalize (char *xmlString, char *xpathString, char *nameSpace, int exc, int comm, char *output) {
   xmlDocPtr myXmlDoc;
-  xmlChar * output;
   xmlXPathObjectPtr xpath;
   xmlChar **list;
   exclusive = exc;
   with_comments = comm;
   //xmlNodeSetPtr nodes;
-
+  
+  //this function is not actually called!
   list=parse_list(nameSpace);
 
   myXmlDoc = xmlParseMemory(xmlString, strlen(xmlString));
@@ -171,21 +171,22 @@ char* canonicalize (char *xmlString, char *xpathString, char *nameSpace, int exc
   xpath = load_xpath_expr(myXmlDoc, xpathString);
   if (xpath == NULL) {
     fprintf(stderr, "Failed to parse Xpath\n");
-    return NULL;
+    return -1;
   }
 
   
 
   int i = xmlC14NDocDumpMemory (myXmlDoc,  (xpath) ? xpath->nodesetval : NULL, 
 				exclusive, 
-				NULL, 
+				list, 
 				with_comments, 
-				&output);
-  if(i >=0) {
-    return output;
-  } else {
-    fprintf(stderr, "Unable to canonicalize xml\n");
-    return NULL;
-  }
+				output);   
+				
+  xmlXPathFreeObject(xpath);
+  xmlFreeDoc(myXmlDoc); 
+  xmlFree(list);  
+  xmlMemoryDump();
+  
+  return i;
 } // end canonicalize
 
