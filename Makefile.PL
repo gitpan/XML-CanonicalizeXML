@@ -1,4 +1,3 @@
-use 5.008003;
 use ExtUtils::MakeMaker;
 
 $mylib=`xml2-config --libs`;
