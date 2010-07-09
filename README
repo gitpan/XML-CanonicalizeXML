@@ -1,5 +1,5 @@
-XML-CanonicalizeXML version 0.03
-============================
+XML-CanonicalizeXML version 0.05
+================================
 
 This module provides a wrapper to the XML Canonicalization functions
 provided by libxml2 (http://www.xmlsoft.org/) to give Perl support to
@@ -22,6 +22,7 @@ DEPENDENCIES
 This module requires these other modules and libraries:
 
 libxml2
+libxml2 development headers
 
 COPYRIGHT AND LICENCE
 
